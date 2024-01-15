@@ -13,7 +13,7 @@ const Quotes = ({
     <section className="all-quotes">
       <div className="quotes wrapper">
         <div className="category-header">
-          <h2 className="category-header">Pick your favorite Quotes below</h2>
+          <h2 className>Pick your favorite Quotes below</h2>
 
           <p>Browse through your collection of quotes</p>
           <CategoryForm
