@@ -7,7 +7,8 @@ const Quotes = ({
   categories,
   category,
   handleCategoryChange,
-  addToFavorites
+  addToFavorites,
+  favoriteQuotes
 }) => {
   return (
     <section className="all-quotes">
@@ -27,6 +28,7 @@ const Quotes = ({
             key={quote.id}
             quote={quote}
             addToFavorites={addToFavorites}
+            favoriteQuotes={favoriteQuotes}
           />
         ))}
       </div>
