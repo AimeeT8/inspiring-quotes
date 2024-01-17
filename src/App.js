@@ -23,7 +23,8 @@ function App() {
   //   "https://gist.githubusercontent.com/skillcrush-curriculum/6365d193df80174943f6664c7c6dbadf/raw/1f1e06df2f4fc3c2ef4c30a3a4010149f270c0e0/quotes.js";
 
   const quotesUrl =
-    "https://gist.githubusercontent.com/AimeeT8/af7be7fe284afdf7f5cc2b178554bc4f/raw/7e19ab3ac79723050d48002233d69b4da6e81e76/quotes.js";
+    "https://gist.githubusercontent.com/AimeeT8/af7be7fe284afdf7f5cc2b178554bc4f/raw/cc260a66f0160f6ad03bd3b7f5dd30b205ca63f5/quotes.js";
+  // "https://gist.githubusercontent.com/AimeeT8/af7be7fe284afdf7f5cc2b178554bc4f/raw/7e19ab3ac79723050d48002233d69b4da6e81e76/quotes.js";
 
   const categories = [
     "All",
