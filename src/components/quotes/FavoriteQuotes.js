@@ -2,6 +2,7 @@ import React from "react";
 import FavoriteQuoteCard from "./FavoriteQuoteCard";
 
 const FavoriteQuotes = ({ favoriteQuotes, maxFaves, removeFromFavorites }) => {
+  const remainingfavoriteAmount = maxFaves - favoriteQuotes.length;
   return (
     <section className="favorite-quotes">
       <div className="wrapper quotes">
@@ -9,23 +10,26 @@ const FavoriteQuotes = ({ favoriteQuotes, maxFaves, removeFromFavorites }) => {
 
         {favoriteQuotes.length > 0 && (
           <ul>
-            {favoriteQuotes.map(quote => (
+            {favoriteQuotes.map((quote, index) => (
               <FavoriteQuoteCard
                 key={quote.id}
+                listPosition={index + 1}
                 quote={quote}
                 removeFromFavorites={removeFromFavorites}
               />
             ))}
           </ul>
         )}
-        <div className="favorite-quotes-description">
-          <p>
-            You can add up to three favorites by selecting from the options
-            below.
-            <br />
-            Once you choose, they will appear here.
-          </p>
-        </div>
+        {favoriteQuotes.length < maxFaves && (
+          <div className="favorite-quotes-description">
+            <p>
+              You can add {remainingfavoriteAmount} more{" "}
+              {remainingfavoriteAmount === 1 ? "quote" : "quotes"} to your top
+              three favorites by selecting from the options below. <br /> Once
+              you choose, they will appear here.
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

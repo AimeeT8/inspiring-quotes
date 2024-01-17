@@ -11,7 +11,10 @@ function App() {
   const [quotes, setQuotes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState("All");
-  const [favoriteQuotes, setFavoriteQuotes] = useState([]);
+  const [favoriteQuotes, setFavoriteQuotes] = useState(
+    JSON.parse(window.localStorage.getItem("favoriteQuotes")) || []
+  );
+
   const [messageText, setMessageText] = useState("");
   const [showMessage, setShowMessage] = useState(false);
   const maxFaves = 3;
@@ -46,6 +49,13 @@ function App() {
     fetchQuotes();
   }, []);
 
+  useEffect(() => {
+    window.localStorage.setItem(
+      "favoriteQuotes",
+      JSON.stringify(favoriteQuotes)
+    );
+  }, [favoriteQuotes]);
+
   const handleCategoryChange = e => {
     setCategory(e.target.value);
   };
@@ -63,12 +73,12 @@ function App() {
     );
     if (alreadyFavorite) {
       setMessageText(
-        "This quote is already in your favorites! Choose another!"
+        "This quote is already in your favorites. Choose another."
       );
       setShowMessage(true);
     } else if (favoriteQuotes.length < maxFaves) {
       setFavoriteQuotes([...favoriteQuotes, selectedQuote]);
-      setMessageText("added to your favs!");
+      setMessageText("added to your favorites!");
       setShowMessage(true);
     } else {
       setMessageText("Maximum amount of favorites reached!");
