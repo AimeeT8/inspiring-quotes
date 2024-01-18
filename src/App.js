@@ -60,14 +60,14 @@ function App() {
     );
   }, [favoriteQuotes]);
 
-  const handleCategoryChange = e => {
-    setCategory(e.target.value);
-  };
-
   const filteredQuotes =
     category !== "All"
       ? quotes.filter(quote => quote.categories.includes(category))
       : quotes;
+
+  const handleCategoryChange = e => {
+    setCategory(e.target.value);
+  };
 
   const addToFavorites = quoteId => {
     const selectedQuote = quotes.find(quote => quote.id === quoteId);
@@ -90,15 +90,15 @@ function App() {
     }
   };
 
-  const removeMessage = () => {
-    setShowMessage(false);
-  };
-
   const removeFromFavorites = quoteId => {
     const updatedFavorites = favoriteQuotes.filter(
       quote => quote.id !== quoteId
     );
     setFavoriteQuotes(updatedFavorites);
+  };
+
+  const removeMessage = () => {
+    setShowMessage(false);
   };
   return (
     <div className="App">
